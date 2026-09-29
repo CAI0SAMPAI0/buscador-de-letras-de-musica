@@ -61,6 +61,10 @@ python-pptx
 python-docx
 pypdf
 olefile
+dj-database-url
+psycopg-binary
+gunicorn
+whitenoise
 pytest
 pytest-django
 pytest-asyncio

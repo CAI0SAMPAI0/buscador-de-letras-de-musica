@@ -41,6 +41,7 @@ build/
 # Logs & temp
 logs/
 *.log
+staticfiles/
 gdrive_page.html
 
 # Frontend
