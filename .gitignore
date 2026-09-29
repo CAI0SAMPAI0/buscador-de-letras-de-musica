@@ -1,0 +1,51 @@
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+# Environment configuration & secrets
+.env
+*.env
+credentials/
+tokens/
+segredos/
+*credential*.json
+*secret*.json
+*token*.json
+
+# Python cache & compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.mypy_cache/
+
+# Databases & local storage
+*.sqlite3
+db.sqlite3
+.cache/
+
+# IDEs & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Build & EXE artifacts
+dist/
+build/
+*.spec
+*.exe
+
+# Logs & temp
+logs/
+*.log
+gdrive_page.html
+
+# Frontend
+frontend/.next/
+frontend/node_modules/
+frontend/tsconfig.tsbuildinfo
+.next/
+node_modules/

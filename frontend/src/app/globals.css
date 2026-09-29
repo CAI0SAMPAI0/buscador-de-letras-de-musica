@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #E7D6A3;
+  --secondary: #F9DF80;
+  --tertiary: #352723;
+  --accent: #B3965E;
+}
+
+body {
+  background-color: #352723;
+  color: #E7D6A3;
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar matching sacred theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2a1e1b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #B3965E;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F9DF80;
+}
