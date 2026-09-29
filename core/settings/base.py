@@ -77,9 +77,11 @@ ASGI_APPLICATION = 'core.asgi.application'
 
 import dj_database_url
 
-POSTGRES_URL = os.getenv("POSTGRES_URL") or os.getenv("DATABASE_URL")
+raw_postgres = os.getenv("POSTGRES_URL") or os.getenv("DATABASE_URL")
+POSTGRES_URL = raw_postgres.strip().strip("'\"") if raw_postgres else None
 
 if POSTGRES_URL:
+    print("[DATABASE] Configurando conexão PostgreSQL (NeonDB)...")
     DATABASES = {
         'default': dj_database_url.parse(
             POSTGRES_URL,
@@ -88,6 +90,7 @@ if POSTGRES_URL:
         )
     }
 else:
+    print("[DATABASE WARNING] POSTGRES_URL não definida! Usando fallback SQLite.")
     # Caminho do banco de dados SQLite persistente
     DB_PATH = Path(os.getenv("DB_PATH", str(PROJECT_ROOT / "db.sqlite3")))
     if not DB_PATH.exists() and (BUNDLE_DIR / "db.sqlite3").exists():
@@ -142,11 +145,11 @@ EMBEDDING_PROVIDER = os.getenv("EMBEDDING_PROVIDER", "huggingface")
 # Configurações de Busca (Mínimo de 2 palavras por padrão)
 MIN_SEARCH_WORDS = int(os.getenv("MIN_SEARCH_WORDS", "2"))
 MAX_SEARCH_RESULTS = int(os.getenv("MAX_SEARCH_RESULTS", "50"))
-PASTA_DRIVE = os.getenv("PASTA_DRIVE", "")
+PASTA_DRIVE = os.getenv("PASTA_DRIVE", "https://drive.google.com/drive/folders/1GjTZ4umBib-7_PznEBx_w4EnNPZIafwU?usp=sharing")
 
 # Configurações Composio (Google Drive API)
-API_KEY_COMPOSIO = os.getenv("API_KEY_COMPOSIO", "")
-ACCOUNT_ID_COMPOSIO = os.getenv("ACCOUNT_ID_COMPOSIO", "")
-COMPOSIO_USER = os.getenv("COMPOSIO_USER", "")
+API_KEY_COMPOSIO = os.getenv("API_KEY_COMPOSIO", "ak_V5YoWFbGLLAPh_5LHlbl")
+ACCOUNT_ID_COMPOSIO = os.getenv("ACCOUNT_ID_COMPOSIO", "ca_XhT0Ykr4jhMK")
+COMPOSIO_USER = os.getenv("COMPOSIO_USER", "pg-test-2b7b0cce-325b-4393-bd0b-305f2a3097c4")
 if API_KEY_COMPOSIO and not os.getenv("COMPOSIO_API_KEY"):
     os.environ["COMPOSIO_API_KEY"] = API_KEY_COMPOSIO

@@ -14,7 +14,7 @@ export const FolderIndexerModal: React.FC<FolderIndexerModalProps> = ({
   onClose,
 }) => {
   const [localFolder, setLocalFolder] = useState("");
-  const [driveUrl, setDriveUrl] = useState("");
+  const [driveUrl, setDriveUrl] = useState("https://drive.google.com/drive/folders/1GjTZ4umBib-7_PznEBx_w4EnNPZIafwU?usp=sharing");
   const [isIndexing, setIsIndexing] = useState(false);
   const [progressData, setProgressData] = useState<{
     status_message: string;
