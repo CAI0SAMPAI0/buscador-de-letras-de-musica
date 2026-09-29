@@ -62,6 +62,8 @@ python-docx
 pypdf
 olefile
 dj-database-url
+psycopg[binary]
+psycopg
 psycopg-binary
 gunicorn
 whitenoise
